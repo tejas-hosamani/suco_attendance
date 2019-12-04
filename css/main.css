@@ -1,0 +1,359 @@
+.background {
+  background: #4079fa;
+}
+
+:root {
+    --color-primary: #444;
+    --color-light: #efefef;
+    --color-white; #fff;
+    --color-disabled: #888;
+    --space-xsmall: .15rem;
+    --space-small: .25rem;
+    --space-medium: .5rem;
+    --space-large: 1.25rem;
+    --space-xlarge: 2rem;
+    --space-neg-small: -.25rem;
+    --space-neg-medium: -.5rem;
+    --font-base-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,'Helvetica Neue', sans-serif;
+    --focus-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /**
+   * Resets
+   */
+  
+  /* Box sizing rules */
+   *,
+   *::before,
+   *::after {
+     box-sizing: border-box;
+   }
+  
+  /* Set core body defaults */
+  body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Inherit fonts for inputs and buttons */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  
+  /* Remove all animations and transitions for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /**
+   * Global
+   */
+  body {
+   display: flex;
+   justify-content: center;
+   font-family: var(--font-base-family);
+   font-size: 1.1rem;
+   color: var(--color-primary);
+   padding: 1rem;
+  }
+  
+  main {
+   flex-direction: column;
+   width: 36rem;
+  }
+  
+  /**
+   * Flow Utility
+   */
+  .flow > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /**
+   * Form
+   */
+  .field-wrap > input, textarea, fieldset {
+   width: 100%;
+   border: 3px solid white;
+   padding: var(--space-medium);
+   background:#4079fa;
+  }
+  
+
+  
+  textarea, fieldset {
+   width: 100%;
+  }
+  
+  button {
+   background: var(--color-white);
+   border: 1px solid var(--color-primary);
+   padding: var(--space-small) var(--space-large);
+  }
+  
+  button:hover {
+   background: var(--color-light);
+   cursor: pointer;
+  }
+  
+  button:focus {
+   background: var(--color-light);
+   box-shadow: var(--focus-shadow);
+  }
+  
+  button:disabled,
+  input:disabled, 
+  textarea:disabled  {
+   background-color: var(--color-light);
+  }
+  
+  /* Checkbox and radio styles */
+  
+  /* get rid of iOS gray bg on tap */
+  .custom-input, label {
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+  
+  [type=radio],
+  [type=checkbox] {
+    position: absolute;
+    top: auto;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+  }
+  
+  [type=radio] + label,
+  [type=checkbox] + label {
+    display: block;
+    padding: .5em;
+    padding-left: 1.5em;
+    cursor: pointer;
+  }
+  
+  fieldset > div [type=radio] + label {
+    margin: var(--space-neg-small) 0;
+    padding-left: var(--space-xlarge);
+  }
+  
+  [type=radio]:focus + label,
+  [type=checkbox]:focus + label {
+    color: var(--color-primary);
+    outline: 1px dotted var(--color-primary);
+  }
+  
+  [type=radio] + label::before,
+  [type=checkbox] + label::before {
+    content: '';
+    border: 1px solid var(--color-primary);
+    display: block;
+    float: left;
+    width: 1em;
+    height: 1em;
+    margin-left: -1.5em;
+    margin-top: var(--space-small);
+    vertical-align: top;
+    text-align: center;
+    transition: all .1s ease-out;
+  }
+  
+  [type=radio] + label::before {
+    border-radius: 100%;
+  }
+  
+  [type=radio]:disabled + label::before,
+  [type=checkbox]:disabled + label::before {
+    border: 1px solid var(--color-disabled);
+    background-color: var(--color-light);
+  }
+  
+  [type=radio]:disabled + label,
+  [type=checkbox]:disabled + label {
+    color: var(--color-disabled);
+  }
+  
+  [type=radio]:checked + label::before {
+    background-color: var(--color-primary);
+    box-shadow: inset 0 0 0 .15em rgba(255, 255, 255, .95);
+  }
+  
+  [type=checkbox] + label::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    width: 1em;
+    height: 1em;
+    transform: rotate(0deg);
+  }
+  
+  [type=checkbox]:checked + label::after {
+    top: .8em;
+    left: .3em;
+    width: .4em;
+    height: .8em;
+    border-right: .25em solid var(--color-primary);
+    border-bottom: .25em solid var(--color-primary);
+    transform: rotate(45deg);
+  }
+  
+  [type=checkbox]:disabled + label::after {
+    border: none;
+  }
+  
+  [type=checkbox]:checked:disabled + label::after {
+    border-right: .25em solid #bbb;
+    border-bottom: .25em solid #bbb;
+  }
+  
+  [type=checkbox] + label {
+   margin-top: var(--space-neg-medium);
+   position: relative;
+  }
+  
+  
+  /* Better small screen sizing */
+  @media screen and (max-width: 768px) {
+   main {
+   max-width: 20rem;
+   }
+  }
+
+  .Site-heading{
+      color:white;
+      display:flex;
+      justify-content: center;
+  }
+
+  
+
+
+
+  ::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+    text-align: center;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: white;
+   text-align: center;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: white;
+   text-align: center;
+  }
+
+
+  .block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: white;
+    color: #4079fa;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-weight:600;
+    padding:14px ;
+  }
+  
+  .block:hover {
+    color: black;
+  }
+
+  .block-custom{
+    display: block;
+    width: 100%;
+    border: none;
+    background: #4079fa;
+    color: #4079fa;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    font-weight:600;
+    border:3px solid white;
+  }
+
+
+
+  .dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .dd-button {
+    display: inline-block;
+    padding: 10px 30px 10px 20px;
+    background-color: #4079fa;
+    cursor: pointer;
+    white-space: nowrap;
+    color:white;
+  }
+  
+  .dd-button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid white;
+  }
+   
+  .dd-input {
+    display: none;
+  }
+  
+  .dd-menu {
+    position: absolute;
+    top: 100%;
+    padding: 0;
+    margin: 2px 0 0 0;
+   
+    background-color: white;
+    list-style-type: none;
+    width:100%;
+    color:#4079fa;
+    border:3px solid white;
+  }
+  
+  .dd-input + .dd-menu {
+    display: none;
+  } 
+  
+  .dd-input:checked + .dd-menu {
+    display: block;
+  } 
+  
+  .dd-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+
+  
+  .dd-menu li a {
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+  }
+  
