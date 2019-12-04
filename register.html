@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="css/main.css" />
+  <title>SUCO Attendance</title>
+</head>
+
+<body class="background">
+  <main>
+    <div class="button__login">
+      <a href="login.html"><button class="login__button">Already registered? Login here</button></a>
+    </div>
+    <h1 class="Site-heading">SUCO ATTENDANCE</h1>
+    <form action="https://jsonplaceholder.typicode.com/posts" method="post" class="flow form__reg" id="form__Reg">
+      <div class="field-wrap">
+        <input type="text" name="sucoId" id="sucoId__reg" pattern="[A-Za-z ]{1,100}" autocomplete="on" required
+          placeholder="Suco ID" />
+      </div>
+
+      <div class="field-wrap">
+        <input type="text" name="name" id="name__reg" required autocapitalize="none" autocorrect="off"
+          pattern="[^@]+@[^\.]+\..+" autocomplete="on" placeholder="Name" />
+      </div>
+
+      <div class="field-wrap">
+        <label class="dropdown block-custom">
+          <div class="dd-button">
+            Designation
+          </div>
+
+          <input type="checkbox" class="dd-input" id="Designation__reg" />
+
+          <ul class="dd-menu">
+            <li id="QA__reg">QA</li>
+            <li id="INDEXER__reg">INDEXER</li>
+            <li id="SME__reg">SME</li>
+            <li id="MANAGEMENT__reg">MANAGEMENT</li>
+            <li id="TRAINEE__reg">TRAINEE</li>
+          </ul>
+        </label>
+      </div>
+
+      <div class="field-wrap">
+        <input type="text" name="email" id="email__reg" required autocapitalize="none" autocorrect="off"
+          pattern="[^@]+@[^\.]+\..+" autocomplete="on" placeholder="Email-id" />
+      </div>
+
+      <div class="field-wrap">
+        <input type="password" name="password" id="password__reg" placeholder="password" required />
+      </div>
+
+      <div class="field-wrap">
+        <input type="password" name="password" id="passwordconf__reg" placeholder=" Confirm password" required />
+      </div>
+
+      <button type="submit" id="button__reg" class="block">Register</button> </a>
+    </form>
+  </main>
+</body>
+
+</html>
